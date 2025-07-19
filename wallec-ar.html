@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { margin: 0; font-family: Arial; display: flex; flex-direction: column; align-items: center; height: 100vh; background: linear-gradient(to bottom, #007BFF, #4D4D4D); color: #FFF; }
+    #app-container { width: 90%; max-width: 800px; padding: 20px; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 20px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); text-align: center; }
+    h1 { font-size: 28px; margin-bottom: 20px; color: #752524; }
+    a-scene { height: 400px; border-radius: 10px; overflow: hidden; }
+    #copyright { margin-top: 20px; font-size: 14px; opacity: 0.8; }
+  </style>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+  <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+</head>
+<body>
+  <div id="app-container">
+    <h1>Wallec AR Test Joints</h1>
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+      <a-marker preset="hiro">
+        <a-gltf-model src="wallec_brick_wall.glb" position="0 0 0" scale="1 1 1"></a-gltf-model> <!-- Ton GLB local -->
+        <a-box position="0.2 0.3 0.05" scale="0.4 0.1 0.05" material="color: #FF0000; opacity: 0.6;" rotation="0 0 0"></a-box> <!-- Joint usé -->
+        <a-text value="Joint Usé !" position="-0.5 0.5 0.1" rotation="0 0 0" color="white" scale="0.5 0.5 0.5"></a-text>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+    <p>Scan un marqueur Hiro ou mur réel pour voir joints virtuels !</p>
+  </div>
+  <div id="copyright">© 2025 Wallec AR Joint Test</div>
+</body>
+</html>
